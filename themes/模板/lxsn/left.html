@@ -1,0 +1,40 @@
+﻿<div id="mleft">
+	<div class="infobox">
+		<div class="mtitle title">
+			<h2>站点推荐</h2>
+		</div>
+		<ul class="bestwl">
+			{#foreach from=get_websites(0,5, false, true) item=best#}
+			<li><strong><a href="{#$best.web_link#}" title="{#$best.web_name#}">{#$best.web_name#}</strong></b><p>{#$best.web_intro#}</p><address><a href="{#$best.web_furl#}" class="visit" onclick="clickout({#$best.web_id#})">{#$best.web_url#}</a></address></li>
+			{#/foreach#}
+		</ul>
+	</div>
+	<div class="infobox">
+		<div>{#get_adcode(3)#}</div>
+	</div>
+	<div  class="infobox">
+		<div class="mtitle title">
+			<h2>新站收录</h2>
+		</div>
+		<div class="mlist">
+			<ul>
+				{#foreach from=get_websites(0,8) item=new#}
+				<li><a href="{#$new.web_link#}" title="{#$new.web_name#}">{#$new.web_name#}</a>-
+				<em>{#$new.web_url#}</em></li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+	<div  class="infobox">
+		<div class="mtitle title">
+			<h2>最新文章</h2>
+		</div>
+		<div class="mlist">
+			<ul>
+				{#foreach from=get_articles(0, 8) item=art#}
+				<li>><a href="{#$art.art_link#}">{#$art.art_title#}</a></li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/skin/style.css" rel="stylesheet" type="text/css" />
+{#include file="script.html"#}
+</head>
+
+<body>
+{#include file="topbar.html"#}
+<div id="wrapper">
+	{#include file="header.html"#}
+    <div id="mainbox" class="clearfix">
+    	<div id="mainbox-left">
+        	<div id="subcate" class="clearfix">
+            	<h3>{#$cate_name#}</h3>
+                <ul class="scatelist">
+                	{#foreach from=$categories item=sub#}
+                    {#if $sub.cate_mod != 'webdir'#}
+                    <li><a href="{#$sub.cate_link#}">{#$sub.cate_name#}</a><em>({#$sub.cate_postcount#})</em></li>
+                    {#/if#}
+                    {#/foreach#}
+                </ul>
+            </div>
+            <div class="blank10"></div>
+            <div id="listbox" class="clearfix">
+            	<ul class="artlist">
+					{#foreach from=$articles item=a name=list#}
+                	<li><h3><a href="{#$a.art_link#}" title="{#$a.art_title#}">{#$a.art_title#}</a></h3><p>{#$a.art_intro#}</p><cite>{#$a.art_ctime#}</cite></li>
+                	{#foreachelse#}
+                	<li>该目录下无任何内容！</li>
+                	{#/foreach#}
+				</ul>
+            	<div class="showpage">{#$showpage#}</div>
+            </div>
+        </div>
+        <div id="mainbox-right">
+        	{#include file="right.html"#}
+        </div>
+    </div>
+    {#include file="footer.html"#}
+</div>
+</body>
+</html>

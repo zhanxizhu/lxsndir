@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link rel="shortcut icon" href="favicon.ico">
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">var sitepath = '{#$site_root#}'; var rewrite = '{#$cfg.link_struct#}';</script>
+</head>
+<body screen_capture_injected="true">
+{#include file="header.html"#}
+<div class="clear"></div>
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="famous">
+			<div class="title">
+				<h2>站点推荐</h2>
+				<span class="more">快审站点可获得推荐机会。&nbsp;|&nbsp;<a href="{#$site_root#}member/?mod=website&act=add" target="_blank">新站提交</a>&nbsp;|&nbsp;<a href="{#$site_root#}member/?mod=article&act=add" target="_blank">软文投稿</a>（免费发布软文）
+				</span>
+			</div>
+			<div class="flist">
+				<ul>
+					{#foreach from=get_websites(0, 25, false, true) item=best#}
+					<li><a href="{#$best.web_link#}" title="{#$best.web_name#}" {#if $best.web_ispay #}class="vode_red"{#/if#}>{#$best.web_name#}</a></li>
+					{#/foreach#}
+				</ul>
+			</div>
+		</div><!-- <div class="ad"></div> -->
+		<div style="background: #ffc; border: dashed 1px #f60; color: #f30;padding: 3px; margin-top:5px;">
+			{#$cfg.site_notice#}
+		</div>
+		<div class="blank10"></div>
+		<div id="hometable">
+			{#foreach from=get_best_categories() item=cate name=csite#}
+				<ul {#if $smarty.foreach.csite.iteration % 2 == 1#} class="ul_blue"{#/if#}>
+					<li class="li_title"><a href="{#$cate.cate_link#}" title="{#$cate.cate_name#}">{#$cate.cate_name#}</a></li>
+					{#foreach from=get_websites($cate.cate_id,4,false,false,'instat') item=cool#}
+					<li><a href="{#$cool.web_link#}" title="{#$cool.web_name#}">{#$cool.web_name#}</a></li>
+					{#/foreach#}
+				</ul>
+			{#/foreach#}
+		</div>
+		
+		<div style="margin-bottom:10px; overflow:auto">
+			<div class="in1">
+				<div class="title">
+					<h2>最新资讯</h2>
+				</div>
+				<div class="newlist">
+					<ul>
+						{#foreach from=get_articles(584, 10, false) item=art#}
+                		<li><span class="spand">{#$art.art_ctime#}</span>
+						<a href="{#$art.art_link#}" title="{#$art.art_tags#}">{#$art.art_title#}</a></li>
+                    	{#/foreach#}
+					</ul>
+				</div>
+			</div>
+			<div class="in2">
+				<div class="title">
+					<h2>软文投稿</h2><a class="more" href="/?mod=article&cid=585">更多&#187;</a>
+				</div>
+				<div class="newlist">
+					<ul>
+						{#foreach from=get_articles(585,10, false) item=art#}
+                		<li><span class="spand">{#$art.art_ctime#}</span><a href="{#$art.art_link#}" title="{#$art.art_tags#}">{#$art.art_title#}</a></li>
+                    	{#/foreach#}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="mleft">
+		<div class="infobox ads">
+		{#get_adcode(1)#}
+		</div>
+		<div class="infobox">
+			<div class="mtitle title">
+				<h2>导航分类</h2>
+			</div>
+			<div class="list_tools">
+				<ul>
+					{#foreach from=get_categories(0,0,'article') item=c#}
+                	<li><a href="{#$c.cate_link#}" title="{#$c.cate_name#}" target="_blank">{#$c.cate_name#}</a></li>
+                    {#/foreach#}
+				</ul>
+			</div>
+		</div>
+		<div class="infobox ads">
+		{#get_adcode(2)#}
+		</div>
+		<div class="infobox">
+			<div class="mtitle title">
+				<h2>快速审核</h2>
+			</div>
+			<div class="mlist">
+				<ul>
+					{#foreach from=get_websites(0, 10, true) item=quick name=quickcheck#}
+					<li><span class="spannum">{#$smarty.foreach.quickcheck.iteration#}.</span>
+					<a href="{#$quick.web_link#}" title="{#$quick.web_name#}" target="_blank">{#$quick.web_name#}</a></li>
+					{#/foreach#}
+				</ul>
+			</div>
+		</div>
+		<div class="infobox">
+			<div class="mtitle title">
+				<h2>新站收录</h2>
+			</div>
+			<div class="mlist">
+				<ul>
+					{#foreach from=get_websites(0,10) item=new#}
+					<li>><a href="{#$new.web_link#}" title="{#$new.web_name#}">{#$new.web_name#}</a>-
+					<em>{#$new.web_url#}</em></li>
+                   	{#/foreach#}
+				</ul>
+			</div>
+		</div>
+		<div class="infobox">
+			<div class="mtitle title">
+				<h2>浏览排行</h2>
+			</div>
+			<div class="mlist">
+				<ul>
+					{#foreach from=get_websites(0, 8,false,false,'views') item=outstat#}
+					<li>><a href="{#$outstat.web_link#}" title="{#$outstat.web_name#}" target="_blank">{#$outstat.web_name#}</a></li>
+					{#/foreach#}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="inweb">
+      	<h3>最新点入</h3>
+        <ul class="inlist">
+          	{#nocache#}
+          	{#foreach from=get_websites(0, 20, false, false, 'instat') item=instat#}
+			<li><a href="{#$instat.web_link#}" title="{#$instat.web_name#}">{#$instat.web_name#}</a></li>
+            {#/foreach#}
+            {#/nocache#}
+        </ul>
+	</div>
+</div>
+<div id="friendlink">
+	{#foreach from=get_links() item=link#}
+	<a href="{#$link.link_url#}" target="_blank">{#$link.link_name#}</a>
+	{#/foreach#}
+</div>
+{#include file="footer.html"#}
+</body>
+</html>

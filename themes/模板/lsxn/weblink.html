@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+{#include file="script.html"#}
+</head>
+<body>
+{#include file="header.html"#}
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="position"><span class="ypos">{#$site_path#}</span></div>
+        <div id="webdirlist">
+            <div class="title"><h2>{#$pagename#}</h2></div>
+			<table border="0" cellpadding="0" cellspacing="1" width="100%" class="weblink">
+				<tr>
+					<th>交易方式</th>
+					<th>网站名称</th>
+					<th>网站域名</th>
+					<th>所属分类</th>
+					<th>PR/权重</th>
+					<th>Alexa排名</th>
+					<th>更新时间</th>
+					<th>联系站长</th>
+				</tr>
+				{#foreach from=$weblinks item=item#}
+				<tr style="text-align: center;">
+					<td>{#$item.deal_type#}</td>
+					<td><a href="{#$item.web_link#}">{#$item.link_name#}</a></td>
+					<td>{#$item.web_url#}</td>
+					<td>{#$item.cate_name#}</td>
+					<td>{#$item.web_grank#}/{#$item.web_brank#}</td>
+					<td>{#$item.web_arank#}</td>
+					<td>{#$item.link_time#}</td>
+					<td><a href="http://wpa.qq.com/msgrd?v=3&amp;uin={#$item.user_qq#}&amp;site={#$item.nick_name#}&amp;menu=yes" rel="external nofollow"><img src="http://wpa.qq.com/pa?p=1:{#$item.user_qq#}:51" title="{#$item.user_qq#}"/></a></td>
+				</tr>
+				{#/foreach#}
+                </table>
+			<div class="showpage">{#$showpage#}</div>
+		</div>
+	</div>
+	{#include file="left_o.html"#}
+</div>
+{#include file="footer.html"#}
+</body>
+</html>

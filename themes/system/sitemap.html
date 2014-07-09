@@ -1,0 +1,16 @@
+{#include file="header.html"#}
+    <h3 class="title"><em>{#$pagetitle#}</em><span><a href="{#$fileurl#}">返回列表&raquo;</a></span></h3>
+	<div class="formbox">
+		<form name="mform" method="post" action="{#$fileurl#}">
+		<table width="100%" border="0" cellspacing="1" cellpadding="0">
+			<tr class="btnbox">
+            	<th>&nbsp;</th>
+				<td colspan="2">
+				<input type="button" class="btn" value="生成XML格式" onClick="window.location.href='sitemap.php?act=xml';">&nbsp;
+				<input type="button" class="btn" value="生成TXT格式" onClick="window.location.href='sitemap.php?act=txt';">
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+{#include file="footer.html"#}

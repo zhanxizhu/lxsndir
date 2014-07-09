@@ -1,0 +1,24 @@
+<div id="mleft">
+	<div class="infobox">
+		<div class="newlist">
+			<ul>
+				{#foreach from=get_pages() item=item#}
+            	<li><a href="{#$item.page_link#}">{#$item.page_name#}</a></li>
+                {#/foreach#}
+			</ul>
+		</div>
+	</div>
+	<div  class="infobox">
+		<div class="mtitle title">
+			<h2>快速审核</h2>
+		</div>
+		<div class="mlist">
+			<ul>
+				{#foreach from=get_websites(0, 8, true) item=quick name=quickcheck#}
+				<li><span class="spannum">{#$smarty.foreach.quickcheck.iteration#}.</span>
+				<a href="{#$quick.web_link#}" title="{#$quick.web_name#}">{#$quick.web_name#}</a></li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+</div>

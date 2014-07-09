@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">var sitepath = '{#$site_root#}'; var rewrite = '{#$cfg.link_struct#}';</script>
+</head>
+<body>
+{#include file="header.html"#}
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="position"><span class="ypos">{#$site_path#}</span></div>
+		<div class="mainlist">
+			<div class="title"><h2>{#$page.page_name#}</h2></div>
+			<div class="line2"></div>
+			<div class="content">{#$page.page_content#}</div>
+		</div>
+		<div class="blank10"></div>
+	</div>
+	{#include file="left_page.html"#}
+</div>
+{#include file="footer.html"#}
+</body>
+</html>

@@ -1,0 +1,5 @@
+2014-07-07  
+1、修改yan138模板首页展示。
+2、修改module/siteinfo.php,中加载关联站点，为点击排行outstat。
+3、修改source/module/prelink.php中的get_webthumb()
+4、修改图片显示，可设置加载shrinktheweb图片

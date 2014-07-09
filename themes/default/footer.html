@@ -1,0 +1,25 @@
+<div class="blank10"></div>
+<div id="footer">
+    <div id="footer_top">
+        <p class="good_link">
+            <a href="?mod=webdir">网站目录</a> |
+			<a href="?mod=update">最新收录</a> |
+			<a href="?mod=archives">数据归档</a> |
+			<a href="?mod=top">网站排行</a> |
+			<a href="?mod=category">分类列表</a> | 
+			<a href="?mod=article">软文资讯</a> | 
+			<a href="?mod=weblink">友链交换</a> | 
+			{#foreach from=get_pages() item=item#}
+				<a href="{#$item.page_link#}">{#$item.page_name#}</a> | 
+			{#/foreach#}
+			<a href="?mod=feedback">留言反馈</a>|
+			<a href="mailto:{#$cfg['admin_email']#}">联系我们</a> |
+            <a href="{#$site_url#}sitemap.xml">sitemap</a>
+        </p>
+    </div>
+    <div class="copyright">
+        <p id="copyright">
+            {#$site_copyright#}
+        </p>
+    </div>
+</div>

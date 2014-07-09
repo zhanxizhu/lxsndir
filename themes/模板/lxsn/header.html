@@ -1,0 +1,44 @@
+<div class="top_all">
+	<div class="top">
+    	<div class="top_left">您好，欢迎来到{#$site_name#}！
+		</div>
+        <div class="top_right">
+		{#nocache#}{#$login_status#}{#/nocache#}
+		&nbsp;|&nbsp;<a href="{#$site_url#}" onclick="this.style.behavior=&#39;url(#default#homepage)&#39;;this.setHomePage(&#39;{#$site_url#}&#39;);">设为主页</a> ｜ <a href="javascript:window.external.AddFavorite('{#$site_url#}','{#$site_name#}')">收藏本站</a> 
+        </div>
+    </div>
+</div>
+<div id="header">
+	<div id="logo"><h1><a href="{#$site_url#}" title="{#$site_title#}"><img src="{#$site_url#}/images/logo.png" border="0"></a></h1>
+		<div style="margin:10px 0 0 0; padding-left:20px">
+			<p>分类：<font color="#FF0000"><strong>{#$stat.category#}</strong></font>个主题</p>
+			<p>站点：<font color="#FF0000"><strong>{#$stat.website#}</strong></font>优秀网站</p>
+			<p>文章：<font color="#FF0000"><strong>{#$stat.article#}</strong></font>篇资讯</p>
+		</div>
+    </div>
+	<div id="banner" align="right">
+		<form id="sofrm" name="sofrm" method="get" action="" onSubmit="return rewrite_search()">
+			<input name="mod" type="hidden" id="mod" value="search" />
+			<input name="type" type="hidden" id="type" value="name" />
+			<input name="query" type="text" class="baidu_input" id="query" onFocus="this.value='';" />
+			<input type="submit" class="baidu_submit" value="搜 索" />
+		</form>
+	</div>
+</div>
+
+<div class="nav">
+	<div id="mainbutton">
+		<ul>
+			<li><a href="/">首页</a></li>
+			<li><a href="?mod=webdir">网站目录</a></li>
+			<li><a href="?mod=article">软文资讯</a></li>
+			<li><a href="?mod=weblink">链接交换</a></li>
+			<li><a href="?mod=category">分类浏览</a></li>
+			<li><a href="?mod=update">最新收录</a></li>
+			<li><a href="?mod=archives">数据归档</a></li>
+			<li><a href="?mod=top">TOP排行榜</a></li>
+<li><a href="http://ml.lxsn.net/" target="_blank">【外链神器】</a></li>
+<li><a href="http://bbs.lxsn.net/" target="_blank">【站长论坛】</a></li>
+		</ul>
+	</div>
+</div>

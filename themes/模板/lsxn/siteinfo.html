@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+{#include file="script.html"#}
+</head>
+<body>
+{#include file="header.html"#}
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="position"><span class="ypos">{#$site_path#}</span></div>
+		<div class="mainlist">
+			<div class="title">
+				入站流量：{#$web.web_instat#} | 出站流量：{#$web.web_outstat#} | 人气指数：{#$web.web_views#}  | 最后更新：2013-6-24 | 联系站长：{#if $user.user_qq #}<a href="http://wpa.qq.com/msgrd?v=3&amp;uin={#$user.user_qq#}&amp;site={#$user.nick_name#}&amp;menu=yes" target="_blank"><img border="0" src="http://wpa.qq.com/pa?p=2:{#$user.user_qq#}:51" alt="点击这里联系我" title="点击这里联系我"/></a>{#/if#}&nbsp;
+			</div>
+			<div id="sinfo">
+				<h2><a class="wt" href="{#$web.web_furl#}" target="_blank" onclick="clickout({#$web.web_id#})">{#$web.web_name#}</a>&nbsp;{#if $web.web_ispay == 1#}<img src="{#$site_root#}images/attr/audit.gif" width="27' height="13" alt="" border="0">{#/if#} {#if $web.web_istop == 1#}<img src="{#$site_root#}images/attr/top.gif" width="27' height="13" alt="" border="0">{#/if#} {#if $web.web_isbest == 1#}<img src="{#$site_root#}images/attr/best.gif"width="27' height="13" alt="" border="0">{#/if#}</h2>
+				<div class="line2"></div>
+				<img src="{#$web.web_pic#}" width="130" height="110" alt="{#$web.web_name#}" class="wthumb" />
+				<div class="siteitem">
+				<ul>
+					<li><b>网站网址：</b><a href="{#$web.web_furl#}" target="_blank" class="visit" onclick="clickout({#$web.web_id#})"><font color="#008000">{#$web.web_url#}</font></a></li>
+					<li><b>收录日期：</b>{#$web.web_ctime#}</li>
+					<li><b>所属分类：</b>{#$cate_name#}</li>
+					<li><b>服务器IP：</b>{#$web.web_ip#}</li>
+				</ul>
+				</div>
+				<div class="line2"></div>
+				<ul>
+					<li style="height:35px;line-height:35px;"><b>百度权重：</b><img src="{#$site_root#}images/bpr/{#$web.web_brank#}.gif" width="45' height="20" alt="" border="0">&nbsp;|&nbsp;<b>PageRank：</b>&nbsp;<img src="{#$site_root#}images/gpr/{#$web.web_grank#}.gif" width="45' height="20" alt="" border="0">&nbsp;|&nbsp;<b>Sogou Rank：</b>&nbsp;<img src="{#$site_root#}images/spr/{#$web.web_srank#}.gif" width="45' height="20" alt="" border="0">&nbsp;|&nbsp;<b>AlexaRank：</b>{#$web.web_arank#}</li>
+					<li style="line-height:35px;"><b>TAG 标签：</b>{#foreach from=$web_tags item=item#}<a href="{#$item.tag_link#}">{#$item.tag_name#}&nbsp;&nbsp;</a>{#/foreach#}</li>
+					<li style="line-height:35px;"><b>网站描述：</b>{#$web.web_intro#}</li>
+						
+				</ul>
+				<div class="line2"></div>
+				<ul><li><b>相关查询：</b><a href="http://seo.chinaz.com/?host={#$web.web_url#}" target="_blank" rel="external nofollow">综合信息</a>　|　<a href="http://tool.chinaz.com/baidu/?wd={#$web.web_url#}" target="_blank" rel="external nofollow">百度近日收录</a>　|　<a href="http://tool.chinaz.com/Tools/MetaCheck.aspx?url={#$web.web_url#}" target="_blank" rel="external nofollow">META信息检测</a>　|　<a href="http://whois.chinaz.com/{#$web.web_url#}" target="_blank" rel="external nofollow">域名WHOIS</a></li></ul>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div id="relsite">
+			<div class="title"><b>相关站点</b></div>
+			<ul class="srellist">
+				{#foreach from=$related_website item=rel#}
+				<li><div class="bh30"><b><a href="{#$rel.web_link#}" title="{#$rel.tag_name#}">{#$rel.web_name#}</a></b></div>
+				<div class="fileintro">{#$rel.web_intro#}</div>
+				<span><a href="{#$rel.web_link#}" target="_blank">{#$rel.web_url#}</a></span></li>
+				{#/foreach#}
+			</ul>
+		</div>
+		<div class="blank10"></div>
+		<div class="mainlist">
+			<img src="http://traffic.alexa.com/graph?w=728&h=280&r=6m&y=t&u={#$web.web_url#}">
+		</div>
+	</div>
+	{#include file="left.html"#}
+</div>
+{#include file="footer.html"#}
+<!--script type="text/javascript" src="{#$site_root#}?mod=getdata&type=ip&wid={#$web.web_id#}"></script>
+<script type="text/javascript" src="{#$site_root#}?mod=getdata&type=grank&wid={#$web.web_id#}"></script>
+<script type="text/javascript" src="{#$site_root#}?mod=getdata&type=brank&wid={#$web.web_id#}"></script>
+<script type="text/javascript" src="{#$site_root#}?mod=getdata&type=srank&wid={#$web.web_id#}"></script>
+<script type="text/javascript" src="{#$site_root#}?mod=getdata&type=arank&wid={#$web.web_id#}"></script-->
+<script type="text/javascript" src="{#$site_root#}?mod=getdata&type=clink&wid={#$web.web_id#}"></script>
+</body>
+</html>

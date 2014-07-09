@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">var sitepath = '{#$site_root#}'; var rewrite = '{#$cfg.link_struct#}';</script>
+</head>
+<body>
+{#include file="header.html"#}
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="position"><span class="ypos">{#$site_path#}</span></div>
+		<div class="flist">
+			<ul class="feleifont">
+				{#foreach from=$categories item=sub#}
+				<li><a href="{#$sub.cate_link#}">{#$sub.cate_name#}</a>({#$sub.cate_postcount#})</li>
+				{#/foreach#}
+			</ul>
+		</div>
+        <div class="blank10"></div>
+        <div id="webdirlist">
+            <div class="title">
+				<h2>{#$cate_name#}</h2>
+			</div>
+			<ul class="sitelist">
+				{#foreach from=$websites item=w name=list#}
+				<li><div class="info"><h3><a href="{#$w.web_link#}" title="{#$w.web_name#}">{#$w.web_name#}</a> {#if $w.web_ispay == 1#}<img src="{#$site_root#}images/attr/audit.gif" border="0">{#/if#} {#if $w.web_istop == 1#}<img src="{#$site_root#}images/attr/top.gif" border="0">{#/if#} {#if $w.web_isbest == 1#}<img src="{#$site_root#}images/attr/best.gif" border="0">{#/if#}</h3><p>{#$w.web_intro#}</p><address><a href="{#$w.web_furl#}" target="_blank" class="visit" onClick="clickout({#$w.web_id#})">{#$w.web_url#}</a> - {#$w.web_ctime#} - <a href="javascript:;" class="addfav" onClick="addfav({#$w.web_id#})" title="点击收藏">收藏</a></address></div></li>
+				{#foreachelse#}
+				<li>该目录下无任何内容！</li>
+				{#/foreach#}
+			</ul>
+			<div class="showpage">{#$showpage#}</div>
+		</div>
+	</div>
+	{#include file="left.html"#}
+</div>
+{#include file="footer.html"#}
+</body>
+</html>

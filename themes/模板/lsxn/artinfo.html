@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+{#include file="script.html"#}
+</head>
+<body>
+{#include file="header.html"#}
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="position"><span class="ypos">{#$site_path#}</span></div>
+		<div class="mainlist">
+			<div class="title"><h2>{#$art.art_title#}</h2></div>
+			<div class="aattr">来源：<a href="{#$art.copy_url#}" target="_blank">{#$art.copy_from#}</a>　浏览：{#$art.art_views#}次　时间：{#$art.art_ctime#}</div>
+			<div class="content">{#$art.art_content#}<br/>
+			<p>
+			转载请注明出处：<a href="{#$site_url#}" target="_blank">{#$site_name#}</a><br/>
+			本文永久地址：<script>document.write(location.href)</script>
+			</p></div>
+			<ul>
+				<li>上一篇： {#if !empty($prev)#}<a href="{#$prev.art_link#}">{#$prev.art_title#}</a>{#else#}没有了{#/if#}</li>
+				<li>下一篇： {#if !empty($next)#}<a href="{#$next.art_link#}">{#$next.art_title#}</a>{#else#}没有了{#/if#}</li>
+			</ul>
+		</div>
+		<div class="blank10"></div>
+		<div id="relsite">
+			<div class="title"><h2>同类资讯【猜你喜欢】</h2></div>
+			<ul class="srellist">
+				{#foreach from=$related_article item=rel#}
+				<li><div class="bh30"><b><a href="{#$rel.art_link#}" title="{#$rel.art_title#}">{#$rel.art_title#}</a></b></div>
+				<div class="fileintro">{#$rel.art_intro#}</div>
+				<span>发布时间：{#$rel.art_ctime#}</span></li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+	{#include file="left_a.html"#}
+</div>
+{#include file="footer.html"#}
+</body>
+</html>

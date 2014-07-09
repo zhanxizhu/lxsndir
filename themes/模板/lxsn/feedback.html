@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+{#include file="script.html"#}
+</head>
+<body>
+{#include file="header.html"#}
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="position"><span class="ypos">{#$site_path#}</span></div>
+		<div class="mainlist">
+			<div class="title"><h2>建议/意见反馈</h2></div>
+			<div style="padding:10px;">
+			<ul class="fbform">
+				<form name="fbfrom" id="fbfrom" method="post" action="">
+				<li class="clearfix">
+					<strong>用户昵称：</strong>
+					<p><input type="text" name="nick" id="nick" class="fipt" size="40" maxlength="50" /></p>
+				</li>
+				<li class="clearfix">
+					<strong>电子邮件：</strong>
+					<p><input type="text" name="email" id="email" class="fipt" size="40" maxlength="50" /></p>
+				</li>
+				<li class="clearfix">
+					<strong>意见内容：</strong>
+					<p><textarea name="content" id="content" cols="60" rows="8" class="fipt"></textarea></p>
+				</li>
+				<li class="clearfix">
+					<strong>验证代码：</strong>
+					<p><input type="text" name="checkcode" id="checkcode" class="fipt" size="6" maxlength="6" onfocus="refreshimg('mycode');" /> <span id="mycode">点击输入框即可显示验证码</span></p>
+				</li>
+				<li>
+					<input type="hidden" name="action" id="action" value="send">
+					<input type="submit" name="submit" class="fbtn" value="提 交">
+					<input type="reset" name="reset" class="fbtn" value="重 填">
+				</li>
+			   </form>
+			</ul>
+			</div>
+		</div>
+	</div>
+	{#include file="left_page.html"#}
+</div>
+{#include file="footer.html"#}
+</body>
+</html>

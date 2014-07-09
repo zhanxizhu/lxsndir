@@ -1,0 +1,43 @@
+<div id="mleft">
+	<div class="infobox">
+		<div class="mtitle title">
+			<h2>文章推荐</h2>
+		</div>
+		<div class="mlist">
+			<ul>
+				{#foreach from=get_articles(0, 8,true,'views') item=art#}
+				<li>><a href="{#$art.art_link#}">{#$art.art_title#}</a></li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+	<div class="infobox ads">
+		{#get_adcode(2)#}
+	</div>
+	<div  class="infobox">
+		<div class="mtitle title">
+			<h2>站点推荐</h2>
+		</div>
+		<div class="mlist">
+			<ul>
+				{#foreach from=get_websites(0,10, false, true) item=best#}
+				<li><a href="{#$best.web_link#}" title="{#$best.web_name#}">{#$best.web_name#}</a>-
+				<em>{#$best.web_url#}</em></li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+	<div  class="infobox">
+		<div class="mtitle title">
+			<h2>最新文章</h2>
+		</div>
+		<div class="mlist">
+			<ul>
+				{#foreach from=get_articles(0, 8) item=art#}
+				<li>><a href="{#$art.art_link#}">{#$art.art_title#}</a></li>
+				{#/foreach#}
+			</ul>
+		</div>
+	</div>
+	
+</div>

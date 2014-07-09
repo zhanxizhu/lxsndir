@@ -1,0 +1,32 @@
+	<div id="header">
+    	<div id="topbox">
+    		<a href="{#$site_url#}" class="logo" title="{#$site_title#}"></a>
+            <div id="sobox">
+        	<form name="sofrm" class="sofrm" method="get" action="" onSubmit="return rewrite_search()">
+            	<input name="mod" type="hidden" id="mod" value="search" />
+                <input name="type" type="hidden" id="type" value="name" />
+                <div id="selopt">
+                	<div id="cursel">网站名称</div>
+                    <ul id="options">
+                    	<li><a href="javascript: void(0);" name="name">网站名称</a></li>
+                    </ul>
+                </div>
+				<input name="query" type="text" class="sipt" id="query" onFocus="this.value='';" /><input type="submit" class="sbtn" value="搜 索" />
+			</form>
+			</div>
+        </div>
+        <div id="navbox">
+			<ul class="navbar">
+        		<li><a href="?mod=index">首页</a></li><li class="navline"></li>
+				{#foreach from=get_categories() item=cate#}
+				<li><a href="{#$cate.cate_link#}" title="{#$cate.cate_name#}">{#$cate.cate_name#}</a></li><li class="navline"></li>
+				{#/foreach#}
+				<li><a href="http://bbs.lxsn.net/" rel="nofollow">站长论坛</a></li><li class="navline"></li>				
+        	</ul>
+        </div>
+        <div id="txtbox">
+        	<div class="count">{#$cfg.site_notice#}</div>
+<div class="link">快捷方式：<a href="{#$site_root#}member/?mod=website&act=add">站点提交</a> - <a href="{#$site_root#}member/?mod=article&act=add">软文投稿</a></div>
+        </div>
+    </div>
+    <div class="sitepath">{#$site_path#}</div>

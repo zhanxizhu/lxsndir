@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/media/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">var sitepath = '{#$site_root#}'; var rewrite = '{#$cfg.link_struct#}';</script>
+</head>
+<body>
+{#include file="header.html"#}
+<div id="contentinfo">
+	<div id="maininfobox">
+		<div id="position"><span class="ypos">{#$site_path#}</span></div>
+		<div>
+			<div class="in1">
+				<div class="title">
+					<h2>入站排行</h2>
+				</div>
+				<div class="toplist">
+					<ul>{#foreach from=get_websites(0, 8, false, false, 'instat') item=instat name=instat_website#}
+						<li><span>{#$smarty.foreach.instat_website.iteration#}.</span><a href="{#$instat.web_link#}" title="{#$instat.web_name#}">{#$instat.web_name#}</a> - <em><a href="{#$instat.web_url#}" target="_blank" onclick="clickout({#$instat.web_id#})">{#$instat.web_url#}</a></em></li>
+						{#/foreach#}</ul>
+				</div>
+			</div>
+			<div class="in2">
+				<div class="title">
+					<h2>出站排行</h2>
+				</div>
+				<div class="toplist">
+					<ul>{#foreach from=get_websites(0, 8, false, false, 'outstat') item=outstat name=outstat_website#}
+                   	<li><span>{#$smarty.foreach.outstat_website.iteration#}.</span><a href="{#$outstat.web_link#}" title="{#$outstat.web_name#}">{#$outstat.web_name#}</a> - <em><a href="{#$outstat.web_url#}" target="_blank" onclick="clickout({#$outstat.web_id#})">{#$outstat.web_url#}</a></em></li>
+                   	{#/foreach#}</ul>
+				</div>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div>
+			<div class="in1">
+				<div class="title">
+					<h2>热门浏览</h2>
+				</div>
+				<div class="toplist">
+					<ul>{#foreach from=get_websites(0, 8, false, false, 'views') item=hot name=hot_website#}
+                   	<li><span>{#$smarty.foreach.hot_website.iteration#}.</span><a href="{#$hot.web_link#}" title="{#$hot.web_name#}">{#$hot.web_name#}</a> - <em><a href="{#$hot.web_url#}" target="_blank" onclick="clickout({#$hot.web_id#})">{#$hot.web_url#}</a></em></li>
+                   	{#/foreach#}</ul>
+				</div>
+			</div>
+			<div class="in2">
+				<div class="title">
+					<h2>最新收录</h2>
+				</div>
+				<div class="toplist">
+					<ul>{#foreach from=get_websites(0, 8, true, false, 'views') item=new name=new_website#}
+                   	<li><span>{#$smarty.foreach.new_website.iteration#}.</span><a href="{#$new.web_link#}" title="{#$new.web_name#}">{#$new.web_name#}</a> - <em><a href="{#$new.web_url#}" target="_blank" onclick="clickout({#$new.web_id#})">{#$new.web_url#}</a></em></li>
+                   	{#/foreach#}</ul>
+				</div>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div>
+			<div class="in1">
+				<div class="title">
+					<h2>快速审核</h2>
+				</div>
+				<div class="toplist">
+					<ul>{#foreach from=get_websites(0, 8, false, false, 'views') item=hot name=hot_website#}
+                   	<li><a href="{#$hot.web_link#}" title="{#$hot.web_name#}">{#$hot.web_name#}</a> - <em><a href="{#$hot.web_url#}" target="_blank" onclick="clickout({#$hot.web_id#})">{#$hot.web_url#}</a></em></li>
+                   	{#/foreach#}</ul>
+				</div>
+			</div>
+			<div class="in2">
+				<div class="title">
+					<h2>最新点出</h2>
+				</div>
+				<div class="toplist">
+					<ul>{#foreach from=get_websites(0, 8, false, false, 'outstat') item=new name=new_website#}
+                   	<li><a href="{#$new.web_link#}" title="{#$new.web_name#}">{#$new.web_name#}</a> - <em><a href="{#$new.web_url#}" target="_blank" onclick="clickout({#$new.web_id#})">{#$new.web_url#}</a></em></li>
+                   	{#/foreach#}</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	{#include file="left_a.html"#}
+</div>
+{#include file="footer.html"#}
+</body>
+</html>

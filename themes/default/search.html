@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{#$site_title#}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{#$site_keywords#}" />
+<meta name="Description" content="{#$site_description#}" />
+<link href="{#$site_root#}themes/default/skin/style.css" rel="stylesheet" type="text/css" />
+{#include file="script.html"#}
+</head>
+
+<body>
+{#include file="topbar.html"#}
+<div id="wrapper">
+	{#include file="header.html"#}
+    <div id="mainbox" class="clearfix">
+    	<div id="mainbox-left">
+			<div id="listbox" class="clearfix">
+			<div class="stitle"><h2>搜索结果</h2></div>
+            	<ul class="sitelist">
+					{#foreach from=$websites item=w name=list#}
+                	<li><div class="info"><h3><a href="{#$w.web_link#}" title="{#$w.web_name#}">{#$w.web_name#}</a></h3><p>{#$w.web_intro#}</p><address><a href="{#$w.web_furl#}" target="_blank" class="visit" onClick="clickout({#$w.web_id#})">{#$w.web_url#}</a> - {#$w.web_ctime#} - <a href="javascript:;" class="addfav" onClick="addfav({#$w.web_id#})" title="点击收藏">收藏</a></address></div></li>
+                	{#foreachelse#}
+                	<li>该目录下无任何内容！</li>
+                	{#/foreach#}
+				</ul>
+            	<div class="showpage">{#$showpage#}</div>
+            </div>
+        </div>
+        <div id="mainbox-right">
+        	{#include file="right.html"#}
+        </div>
+    </div>
+    {#include file="footer.html"#}
+</div>
+</body>
+</html>
