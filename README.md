@@ -15,6 +15,6 @@ lxsndir
 4、修改图片显示，可设置加载shrinktheweb图片。
 5、代码提交GitHub管理。
 
-邮件：zhanxizhu@126.com
+邮件：xzwork@qq.com
 
 yiyunweb
